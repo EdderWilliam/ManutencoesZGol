@@ -30,6 +30,7 @@ let sortConfig = { field: 'data', dir: 'desc' };
 document.addEventListener('DOMContentLoaded', () => {
   setupListeners();
   setupVehicleTabs();
+  updateVehicleHeader();
   if (isConfigured()) {
     loadRecords();
   } else {
@@ -71,6 +72,7 @@ function switchVehicle(key) {
 }
 
 function updateVehicleHeader() {
+  document.body.dataset.vehicle = currentVehicle;
   document.getElementById('vehicleLabel').textContent = VEHICLES[currentVehicle].short;
 }
 

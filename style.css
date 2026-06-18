@@ -1,6 +1,8 @@
 :root {
   --green: #4EB848;
   --green-dark: #3a9036;
+  --accent-glow: rgba(78, 184, 72, 0.45);
+  --accent-glow-strong: rgba(78, 184, 72, 0.55);
   --black: #0F0F0F;
   --surface: #1A1A1A;
   --surface-2: #242424;
@@ -10,6 +12,13 @@
   --warning: #F5A623;
   --danger: #E63946;
   --radius: 8px;
+}
+
+body[data-vehicle="gol"] {
+  --green: #2878E8;
+  --green-dark: #1a63c9;
+  --accent-glow: rgba(40, 120, 232, 0.45);
+  --accent-glow-strong: rgba(40, 120, 232, 0.55);
 }
 
 * {
@@ -22,7 +31,8 @@ body {
   background: var(--black);
   color: var(--text);
   font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
-  min-height: 100vh;
+  min-height: 100dvh;
+  -webkit-text-size-adjust: 100%;
 }
 
 /* ---- HEADER ---- */
@@ -326,7 +336,7 @@ select:focus {
   font-size: 15px;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 4px 18px rgba(78, 184, 72, 0.45);
+  box-shadow: 0 4px 18px var(--accent-glow);
   transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
   z-index: 100;
 }
@@ -334,7 +344,7 @@ select:focus {
 .fab:hover {
   background: var(--green-dark);
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(78, 184, 72, 0.55);
+  box-shadow: 0 6px 24px var(--accent-glow-strong);
 }
 
 /* ---- MODAL ---- */
@@ -569,38 +579,118 @@ form {
 /* ---- RESPONSIVE ---- */
 
 @media (max-width: 640px) {
+  /* Header */
   header {
-    padding: 12px 16px;
+    padding: 10px 14px;
+    gap: 10px;
   }
 
   .header__logo {
-    font-size: 24px;
+    font-size: 22px;
+  }
+
+  .header__subtitle {
+    font-size: 10px;
   }
 
   .header__stats {
-    gap: 20px;
+    gap: 16px;
   }
 
   .stat__value {
-    font-size: 17px;
+    font-size: 16px;
   }
 
+  .stat__label {
+    font-size: 9px;
+  }
+
+  /* Vehicle tabs — full width */
+  .vehicle-tabs {
+    padding: 0;
+  }
+
+  .vehicle-tab {
+    flex: 1;
+    text-align: center;
+    padding: 11px 8px;
+  }
+
+  /* Main */
   main {
-    padding: 16px 12px 120px;
+    padding: 14px 10px 100px;
   }
 
+  /* Controls */
+  .controls {
+    gap: 8px;
+  }
+
+  select {
+    font-size: 13px;
+    padding: 8px 10px;
+    flex: 1;
+  }
+
+  .btn-icon {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+  }
+
+  /* Cards */
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* FAB */
+  .fab {
+    bottom: max(20px, env(safe-area-inset-bottom, 20px));
+    right: 16px;
+    padding: 13px 18px;
+    font-size: 14px;
+  }
+
+  /* Modal como bottom sheet */
+  .modal-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .modal {
+    max-width: 100%;
+    max-height: 92dvh;
+    border-radius: 16px 16px 0 0;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    border-top: 3px solid var(--green);
+    transform: translateY(100%);
+  }
+
+  .modal-overlay.active .modal {
+    transform: translateY(0);
+  }
+
+  /* Formulário */
   .form-row {
     grid-template-columns: 1fr;
   }
 
-  .cards-grid {
-    grid-template-columns: 1fr;
+  .form-group input,
+  .form-group textarea {
+    font-size: 16px; /* evita zoom automático no iOS */
+    padding: 12px;
   }
 
-  .fab {
-    bottom: 20px;
-    right: 16px;
-    padding: 13px 18px;
-    font-size: 14px;
+  .form-group input[type="date"] {
+    min-height: 44px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    min-height: 44px;
+    font-size: 15px;
   }
 }

@@ -3,13 +3,13 @@ const VEHICLES = {
   z400: {
     label: 'Kawasaki Z400',
     short: 'Z400',
-    SHEET_CSV_URL:   'https://docs.google.com/spreadsheets/d/12haryd4Q0eZem44_FACWyfOBI6430GlX3SpeLUtX_Pc/pub?output=csv',
+    SHEET_CSV_URL:   'https://docs.google.com/spreadsheets/d/e/2PACX-1vSMxCAWbJADSQ0Ry_LKk2y27NxkQLYGxWWoDCRViOBue2Ww9ndX9w2axHCo3zwL5WBlXryYV2RPEV0J/pub?gid=0&single=true&output=csv',
     APPS_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbybW4YiYdSqi0xH1muKzUwKtdrUh8JqC-MqwLnhb6oqUXBFtEIrBzgLWC--WF3-XOUNfQ/exec',
   },
   gol: {
     label: 'VW Gol 2008',
     short: 'Gol 2008',
-    SHEET_CSV_URL:   'https://docs.google.com/spreadsheets/d/1yzJzHTF-WNxL4SqqFi-EMpmVTBOhOqQ0PkzGKX0qb-Y/pub?output=csv',
+    SHEET_CSV_URL:   'https://docs.google.com/spreadsheets/d/e/2PACX-1vTTdEbKho0cvEOUAvDeP-ce9hHDsLVyD_fYO9KcV-oQDKT7K_cFub9XLMNqLFDwQjYjainNuCtLMo4Z/pub?gid=0&single=true&output=csv',
     APPS_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbzXc1Qx_L5c38MsCgi9wcMpv6VUquK4miI84YphuCgpeBlOhllqJC1QPoFjAomkxrvp/exec',
   },
 };
